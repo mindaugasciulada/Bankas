@@ -1,8 +1,6 @@
-# Project Title
+# Bankas
 
 ## How to run
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Installing
 
@@ -23,24 +21,24 @@ internet: 193.219.12.42
 ```
 
 
-###Get
+### Get
 ```
 /user - all users
 
 /user:id - get user by id
 ```
 
-###Post
+### Post
 ```
 /user - create user
 ```
 
-###Put
+### Put
 ```
 /user - update user
 ```
 
-###Delete
+### Delete
 ```
 /user:id - delete user
 ```
