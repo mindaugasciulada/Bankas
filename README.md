@@ -8,21 +8,21 @@ išorėje: 193.219.12.42
 
 # Methods
 
-###Get 
+##Get 
 '/user - all users
 '
 '/user:id - get user by id
 '
 
-###Post
+##Post
 '/user - create user
 '
 
-###Put
+##Put
 '
 /user - update user
 '
-###Delete
+##Delete
 '
 /user:id - delete user
 '
