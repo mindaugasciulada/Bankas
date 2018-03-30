@@ -58,8 +58,9 @@ internet: 193.219.12.42
 
 ## Built With
 
+* [Spark](http://sparkjava.com/) - micro framework for creating web applications
 * [Maven](https://maven.apache.org/) - Dependency Management
 
 ## Authors
 
-* **Mindaugas** - *Initial work* - [PurpleBooth](https://github.com/mindaugasciulada/Bankas)
+* **Mindaugas** - *Initial work* - [Bankas](https://github.com/mindaugasciulada/Bankas)
