@@ -1,6 +1,8 @@
 # Bankas
 ## How to run
+
 'docker build -t webservisai/webservisai:first .''
+
 'docker run -d -p 80:4567 webservisai/webservisai:first'
 
 localhost:4567
