@@ -23,7 +23,7 @@ internet: 193.219.12.42
 
 ### Get
 ```
-/user - all users
+/users - all users
 
 /user:id - get user by id
 ```
@@ -58,8 +58,8 @@ internet: 193.219.12.42
 
 ## Built With
 
-* [Spark](http://sparkjava.com/) - micro framework for creating web applications
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Spark](http://sparkjava.com/) - micro framework for creating web application
+s* [Maven](https://maven.apache.org/) - Dependency Management
 
 ## Authors
 
