@@ -7,9 +7,9 @@
 What things you need to install the software and how to install them
 
 ```
-docker build -t webservisai/webservisai1:first .
+docker build -t webservisai/webservisai1:latest .
 
-docker run -d -p 80:5000 webservisai/webservisai1:first
+docker run -d -p 80:5000 webservisai/webservisai1:latest
 ```
 
 ### Accessibility
