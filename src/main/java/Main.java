@@ -1,6 +1,7 @@
 import spark.Request;
 import spark.Response;
-
+//create user turi but i users o ne /user
+//headers pridet location ir json
 import static spark.Spark.*;
 
 public class Main {
@@ -9,22 +10,27 @@ public class Main {
         port(5000);
         UserData userData = new UserData();
         get("/users", (Request req, Response res) -> {
+            res.type("application/json");
             return UserController.getAll(req, res, userData);
         }, new JsonTransformer());
 
-        post("/user", (req, res) -> {
+        post("/users", (req, res) -> {
+            res.type("application/json");
             return UserController.createUser(req, res, userData);
         }, new JsonTransformer());
 
-        put("/user/:id", (req, res) -> {
+        put("/users/:id", (req, res) -> {
+            res.type("application/json");
             return UserController.updateUser(req, res, userData);
         }, new JsonTransformer());
 
-        delete("/user/:id", (req, res) -> {
+        delete("/users/:id", (req, res) -> {
+            res.type("application/json");
             return UserController.deleteUser(req, res, userData);
         }, new JsonTransformer());
 
-        get("/user/:id", (req, res) -> {
+        get("/users/:id", (req, res) -> {
+            res.type("application/json");
             return UserController.getUser(req, res, userData);
         }, new JsonTransformer());
 
