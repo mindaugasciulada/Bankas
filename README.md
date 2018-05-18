@@ -30,17 +30,17 @@ internet: 193.219.12.42
 
 ### Post
 ```
-/user - create user
+/users - create user
 ```
 
 ### Put
 ```
-/user - update user
+/users - update user
 ```
 
 ### Delete
 ```
-/user:id - delete user
+/users:id - delete user
 ```
 
 
