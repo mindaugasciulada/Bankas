@@ -9,8 +9,5 @@
         <module name="Bankas" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Bankas" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

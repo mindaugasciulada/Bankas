@@ -25,7 +25,7 @@ internet: 193.219.12.42
 ```
 /users - all users
 
-/user:id - get user by id
+/user/:id - get user by id
 ```
 
 ### Post
@@ -35,12 +35,12 @@ internet: 193.219.12.42
 
 ### Put
 ```
-/users - update user
+/users/:id - update user
 ```
 
 ### Delete
 ```
-/users:id - delete user
+/users/:id - delete user
 ```
 
 
