@@ -35,6 +35,11 @@ public class UserData {
         return users.get(id);
     }
 
+    public int getSize() {
+        int i = Integer.valueOf(users.size());
+        return i;
+    }
+
     public List<User> getAll() {
         return users.entrySet().stream().map(Map.Entry::getValue).collect(Collectors.toList());
     }

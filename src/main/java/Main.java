@@ -9,9 +9,20 @@ public class Main {
     public static void main(String[] args) {
         port(5000);
         UserData userData = new UserData();
+
         get("/users", (Request req, Response res) -> {
             res.type("application/json");
             return UserController.getAll(req, res, userData);
+        }, new JsonTransformer());
+
+        get("/names/:name", (req, res) -> {
+            res.type("application/json");
+            return UserController.searchUserName(req, res, userData);
+        }, new JsonTransformer());
+
+        get("/usernames/:name", (req, res) -> {
+            res.type("application/json");
+            return UserController.searchUserNameObject(req, res, userData);
         }, new JsonTransformer());
 
         post("/users", (req, res) -> {
