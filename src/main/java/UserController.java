@@ -7,16 +7,42 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserController {
     private static HttpURLConnection con;
     private static final int HTTP_NOT_FOUND = 404;
+    private static final int Created = 201;
+
+
 
     public static Object getAll(Request request, Response response, UserData userData) {
         return userData.getAll();
     }
 
+    public static Object getUserNames(Request request, Response response, UserData userData) {
+        try {
+
+            String name = request.params("name");
+
+
+            for(int i=0;i<4;i++){
+                if(userData.getAll().toString().contains("Tomas")){
+                    System.out.println(userData);
+                }
+            }
+
+            if (name == null)
+                throw new Exception("No user found with name " + name);
+
+            return name;
+        } catch (Exception e) {
+            response.status(HTTP_NOT_FOUND);
+            return new ErrorMessage(e);
+        }
+    }
 
     public static Object getUser(Request request, Response response, UserData userData) {
         try {
@@ -31,11 +57,28 @@ public class UserController {
             response.status(HTTP_NOT_FOUND);
             return new ErrorMessage(e);
         }
+
+
+
 }
     public static Object createUser(Request req, Response res, UserData userData) {
-        User user = JsonTransformer.fromJson(req.body(), User.class);
-        userData.createUser(user);
+
+        try {
+            User user = JsonTransformer.fromJson(req.body(), User.class);
+            if (user.getName().equals(null) || user.getLastName().equals(null)){
+                Exception e;
+            }
+
+            userData.createUser(user);
+
+        }
+        catch(Exception e) {
+            res.status(HTTP_NOT_FOUND);
+            return new ErrorMessage(e);
+        }
+        res.status(Created);
         return "ok";
+
     }
     public static Object updateUser(Request req, Response res, UserData userData) {
         try {

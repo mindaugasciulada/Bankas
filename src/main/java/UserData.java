@@ -17,7 +17,16 @@ public class UserData {
 
         usersArray.forEach(user -> {this.users.put(user.getId(), user);
         });
+        System.out.println(users.entrySet().stream().map(Map.Entry::getValue).collect(Collectors.toList()));
+        }
+
+//    public void searchUser(User user) {
+//     users.containsValue("Tomas");
+//    }
+    public void searchUserName(User user) {
+
     }
+
 
     public void createUser(User user) {
         user.setId(users.size() + 1);
@@ -33,6 +42,11 @@ public class UserData {
 
     public User get(int id) {
         return users.get(id);
+    }
+
+
+    public List<User> getUserNames() {
+        return users.entrySet().stream().map(Map.Entry::getValue).collect(Collectors.toList());
     }
 
     public List<User> getAll() {

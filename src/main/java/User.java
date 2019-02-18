@@ -1,5 +1,18 @@
 public class User {
     private int id;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
     private String name;
     private String lastName;
     private int balance;
