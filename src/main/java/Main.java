@@ -40,6 +40,12 @@ public class Main {
             return UserController.deleteUser(req, res, userData);
         }, new JsonTransformer());
 
+        get("/users/name/:name", (req, res) -> {
+            res.type("application/json");
+            return UserController.getUserNames(req, res, userData);
+        }, new JsonTransformer());
+
+
         get("/users/:id", (req, res) -> {
             res.type("application/json");
             return UserController.getUser(req, res, userData);
@@ -49,4 +55,7 @@ public class Main {
             return UserController.getVehicles(req,res,userData);
         }, new JsonTransformer());
 }
+//prideti statusus create 401 +
+//tuscia pridet negalima poste +
+//paieska padaryt pagal varda
 }
