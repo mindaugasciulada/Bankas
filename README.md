@@ -27,12 +27,14 @@ internet: 193.219.12.42
 
 /user/:id - get user by id
 
-/names/:name - get name suggestions
+/users/names/:name - get name suggestions
+
 For example: Database has two names Martynas and Tomas so
 /names/as will print out both names, because of same characters "as"
 
-/usernames/:name - get array of objects based of name suggestions
+/users/usernames/:name - get array of objects based of name suggestions
 
+/users/balance/:balance - get array of objects based of balance value
 
 ```
 
