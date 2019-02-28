@@ -15,12 +15,16 @@ public class Main {
             return UserController.getAll(req, res, userData);
         }, new JsonTransformer());
 
-        get("/names/:name", (req, res) -> {
+        get("/users/names/:name", (req, res) -> {
             res.type("application/json");
             return UserController.searchUserName(req, res, userData);
         }, new JsonTransformer());
+        get("/users/balance/:balance", (req, res) -> {
+            res.type("application/json");
+            return UserController.searchUserBalanceObject(req, res, userData);
+        }, new JsonTransformer());
 
-        get("/usernames/:name", (req, res) -> {
+        get("/users/usernames/:name", (req, res) -> {
             res.type("application/json");
             return UserController.searchUserNameObject(req, res, userData);
         }, new JsonTransformer());
@@ -45,8 +49,8 @@ public class Main {
             return UserController.getUser(req, res, userData);
         }, new JsonTransformer());
 
-        get("/ss", (req, res) -> {
-            return UserController.getVehicles(req,res,userData);
-        }, new JsonTransformer());
+//        get("/ss", (req, res) -> {
+//            return UserController.getVehicles(req,res,userData);
+//        }, new JsonTransformer());
     }
 }

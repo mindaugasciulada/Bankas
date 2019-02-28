@@ -66,6 +66,35 @@ public class UserController {
         }
     }
 
+
+    public static Object searchUserBalanceObject(Request request, Response response, UserData userData) {
+        try {
+            ArrayList<User> usersArray = new ArrayList<>();
+            int reqname = Integer.valueOf(request.params("balance"));
+//            int reqName=request.params("balance");
+            String names = "";
+
+            User[] userArray = new User[1];
+            User user = userData.get(1);
+            for (int i = 1; i <= userData.getSize(); i++) {
+                user = userData.get(i);
+                if (user.getBalance()== reqname){
+                    names+=user.getName() + " ";
+
+                    usersArray.add(user);
+                }
+            }
+
+            if (names.equals(""))
+                throw new Exception("No user name found with this " + reqname);
+            return usersArray;
+        } catch(Exception e) {
+            response.status(HTTP_NOT_FOUND);
+            return new ErrorMessage(e);
+        }
+    }
+
+
     public static Object getUser(Request request, Response response, UserData userData) {
         try {
             int id = Integer.valueOf(request.params("id"));
