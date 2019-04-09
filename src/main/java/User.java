@@ -1,3 +1,8 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class User {
     private int id;
 
@@ -5,6 +10,20 @@ public class User {
     private String name;
     private String lastName;
     private int balance;
+//    private ArrayList<Object> courses;
+    private Map< Integer,respa> courses = new HashMap();
+
+    public int getBuy() {
+        return buy;
+    }
+
+    public void setBuy(int buy) {
+        this.buy = buy;
+    }
+
+    private int buy;
+
+
     public String getName() {
         return name;
     }
@@ -29,13 +48,31 @@ public class User {
         this.balance = balance;
     }
 
+//    public void setCourse(Object courses) {this.courses =courses;}
 
+
+//    public ArrayList<respa> getCourses(){
+//        return courses;
+//    }
+//    public ArrayList<Object> getCourses(){
+//        return courses;
+//    }
+    public void setCourse(respa respaOBJ) {
+        courses.put(respaOBJ.getId(),respaOBJ);
+    }
 
     public User(int id, String name, String lastName, int balance) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.balance = balance;
+    }
+    public User(int id, String name, String lastName, int balance, respa courses) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.balance = balance;
+        setCourse(courses);
     }
 
     public int getId() {

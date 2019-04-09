@@ -15,6 +15,10 @@ public class Main {
             return UserController.getAll(req, res, userData);
         }, new JsonTransformer());
 
+        get("/courses", (Request req, Response res) -> {
+            res.type("application/json");
+            return UserController.modifyCourses(req, res, userData);
+        }, new JsonTransformer());
         get("/users/names/:name", (req, res) -> {
             res.type("application/json");
             return UserController.searchUserName(req, res, userData);
@@ -32,6 +36,11 @@ public class Main {
         post("/users", (req, res) -> {
             res.type("application/json");
             return UserController.createUser(req, res, userData);
+        }, new JsonTransformer());
+
+        post("/courses", (req, res) -> {
+            res.type("application/json");
+            return UserController.addCourse(req, res, userData);
         }, new JsonTransformer());
 
         put("/users/:id", (req, res) -> {
