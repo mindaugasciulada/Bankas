@@ -59,6 +59,9 @@ public class User {
     public void setCourse(respa respaOBJ) {
         courses.put(respaOBJ.getId(),respaOBJ);
     }
+    public void delCourse(int id) {
+        courses.remove(id);
+    }
 
     public User(int id, String name, String lastName, int balance) {
         this.id = id;

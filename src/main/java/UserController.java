@@ -279,7 +279,7 @@ public class UserController {
 
         HttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/"+userREQ.getBuy());
+        HttpGet getRequest = new HttpGet("http://172.30.1.140/api/courses/"+userREQ.getBuy());
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
@@ -297,6 +297,47 @@ public class UserController {
         user.setCourse(respaa);
         userData.updateUser(user.getId(),user);
 
+        return user;
+    }
+
+    public static Object deleteCourse(Request req, Response res,UserData userData) throws IOException, JSONException {
+
+        String result="";
+        int id = Integer.valueOf(req.params("id"));
+        User userREQ = JsonTransformer.fromJson(req.body(), User.class);
+        User user = userData.get(id);
+
+//        try {
+//            int id = Integer.valueOf(req.params("id"));
+//            if (userData.get(id) == null) {
+//                throw new Exception("No user found with id " + req.params("id"));
+//            }
+//
+//        } catch(Exception e) {
+//            res.status(HTTP_NOT_FOUND);
+//            return new ErrorMessage(e);
+//        }
+
+        HttpClient httpClient = HttpClientBuilder.create().build();
+
+        HttpGet getRequest = new HttpGet("http://172.30.1.140/api/courses/"+userREQ.getBuy());
+        HttpResponse response = httpClient.execute(getRequest);
+
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        // Get-Capture Complete application/xml body response
+        BufferedReader br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
+        String output;
+        while ((output = br.readLine()) != null) {
+            result+=output;
+        }
+        respa respaa = JsonTransformer.fromJson(result, respa.class);
+//        user.setBalance(user.getBalance()-respaa.getPrice());
+        user.delCourse(respaa.getId());
+//        userData.updateUser(user.getId(),user);
+        System.out.println("deleted");
         return user;
     }
 

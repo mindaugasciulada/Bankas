@@ -48,6 +48,11 @@ public class Main {
             return UserController.updateUser(req, res, userData);
         }, new JsonTransformer());
 
+        delete("/users/:id/courses", (req, res) -> {
+            res.type("application/json");
+            return UserController.deleteCourse(req, res, userData);
+        }, new JsonTransformer());
+
         delete("/users/:id", (req, res) -> {
             res.type("application/json");
             return UserController.deleteUser(req, res, userData);
