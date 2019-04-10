@@ -243,7 +243,7 @@ public class UserController {
 
         HttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpGet getRequest = new HttpGet("http://172.30.1.140:81/api/courses/1");
+        HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/1");
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
@@ -278,7 +278,7 @@ public class UserController {
 
         HttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpGet getRequest = new HttpGet("http://172.30.1.140:81/api/courses/"+userREQ.getBuy());
+        HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/"+userREQ.getBuy());
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
