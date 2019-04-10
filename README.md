@@ -10,6 +10,10 @@ What things you need to install the software and how to install them
 docker build -t webservisai/webservisai1:latest .
 
 docker run --rm -d -p 80:5000 webservisai/webservisai1:latest
+
+OR using docker-compose
+
+docker-compose up
 ```
 
 ### Accessibility
