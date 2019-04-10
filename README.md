@@ -13,7 +13,7 @@ docker run --rm -d -p 80:5000 webservisai/webservisai1:latest
 
 OR using docker-compose
 
-docker-compose up
+docker-compose up -d
 ```
 
 ### Accessibility
