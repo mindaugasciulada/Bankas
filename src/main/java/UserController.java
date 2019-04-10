@@ -243,7 +243,7 @@ public class UserController {
 
         HttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpGet getRequest = new HttpGet("http://localhost:5000/users/1");
+        HttpGet getRequest = new HttpGet("http://rest:81/api/courses/1");
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
@@ -256,12 +256,8 @@ public class UserController {
         while ((output = br.readLine()) != null) {
             result+=output;
         }
-        User user = JsonTransformer.fromJson(result, User.class);
-        user.setBalance(user.getBalance() - 20);
-//      user.setCourse("modifyCoursesedit");
-        userData.updateUser(user.getId(),user);
 
-        return user;
+        return result;
     }
     public static Object addCourse(Request req, Response res,UserData userData) throws IOException, JSONException {
 
