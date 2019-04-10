@@ -37,7 +37,16 @@ For example: Database has two names Martynas and Tomas so
 /users/balance/:balance - get array of objects based of balance value
 
 ```
-
+### POST to add course to user /courses
+```
+{
+"id": 2,
+"name": "Martynas",
+"lastName": "Buinauskas",
+"balance": 4540,
+"buy": 1
+}
+```
 
 
 ### Post
