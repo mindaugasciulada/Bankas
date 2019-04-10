@@ -1,0 +1,16 @@
+version: '3'
+services:
+  rest:
+    image: webservisai/rest:latest
+    depends_on:
+      - redis
+    ports:
+      - "81:3000"
+  redis:
+    image: hello-world
+    depends_on:
+     - bankas
+  bankas:
+    image: webservisai/webservisai1:latest
+    ports:
+     - "80:5000"
