@@ -38,7 +38,7 @@ public class Main {
             return UserController.createUser(req, res, userData);
         }, new JsonTransformer());
 
-        post("/courses", (req, res) -> {
+        post("/users/:id/courses", (req, res) -> {
             res.type("application/json");
             return UserController.addCourse(req, res, userData);
         }, new JsonTransformer());

@@ -20,7 +20,7 @@ public class UserController {
     private static final int Created = 201;
     private static final int OK = 200;
 
-
+//users/1/courses
 
     public static Object getAll(Request request, Response response, UserData userData) {
         return userData.getAll();
@@ -262,8 +262,9 @@ public class UserController {
     public static Object addCourse(Request req, Response res,UserData userData) throws IOException, JSONException {
 
         String result="";
+        int id = Integer.valueOf(req.params("id"));
         User userREQ = JsonTransformer.fromJson(req.body(), User.class);
-        User user = userData.get(userREQ.getId());
+        User user = userData.get(id);
 
 //        try {
 //            int id = Integer.valueOf(req.params("id"));
@@ -278,7 +279,7 @@ public class UserController {
 
         HttpClient httpClient = HttpClientBuilder.create().build();
 
-        HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/"+userREQ.getBuy());
+        HttpGet getRequest = new HttpGet("http://172.30.1.140/api/courses/"+userREQ.getBuy());
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
