@@ -48,7 +48,7 @@ public class Main {
             return UserController.updateUser(req, res, userData);
         }, new JsonTransformer());
 
-        delete("/users/:id/courses", (req, res) -> {
+        delete("/users/:id/courses/:dd", (req, res) -> {
             res.type("application/json");
             return UserController.deleteCourse(req, res, userData);
         }, new JsonTransformer());

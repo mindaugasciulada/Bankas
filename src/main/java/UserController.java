@@ -278,6 +278,7 @@ public class UserController {
 //        }
 
         HttpClient httpClient = HttpClientBuilder.create().build();
+//        HttpGet getRequest = new HttpGet("http://172.30.1.140/api/courses/"+userREQ.getBuy());
 
         HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/"+userREQ.getBuy());
         HttpResponse response = httpClient.execute(getRequest);
@@ -304,6 +305,8 @@ public class UserController {
 
         String result="";
         int id = Integer.valueOf(req.params("id"));
+        int dd = Integer.valueOf(req.params("dd"));
+
         User userREQ = JsonTransformer.fromJson(req.body(), User.class);
         User user = userData.get(id);
 
@@ -321,6 +324,8 @@ public class UserController {
         HttpClient httpClient = HttpClientBuilder.create().build();
 
         HttpGet getRequest = new HttpGet("http://rest:3000/api/courses/"+userREQ.getBuy());
+//        HttpGet getRequest = new HttpGet("http://172.30.1.140/api/courses/"+userREQ.getBuy());
+
         HttpResponse response = httpClient.execute(getRequest);
 
         // Check for HTTP response code: 200 = success
@@ -335,7 +340,7 @@ public class UserController {
         }
         respa respaa = JsonTransformer.fromJson(result, respa.class);
 //        user.setBalance(user.getBalance()-respaa.getPrice());
-        user.delCourse(respaa.getId());
+        user.delCourse(dd);
 //        userData.updateUser(user.getId(),user);
         System.out.println("deleted");
         return user;
